@@ -1,0 +1,7 @@
+# Eview HB6 / HB52 / HBEV322 - single-antenna RTK (Septentrio SBF), ArduPilot 4.5+
+# Starting point - verify against current ArduPilot docs and bench-test before flight.
+SERIAL3_PROTOCOL,5
+SERIAL3_BAUD,115
+GPS1_TYPE,10
+GPS1_RATE_MS,100
+GPS_INJECT_TO,0

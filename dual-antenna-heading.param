@@ -1,0 +1,13 @@
+# Eview HB6 Pro / HB10 - dual-antenna RTK with GPS yaw (Septentrio SBF), ArduPilot 4.5+
+# Example: second antenna 0.5 m to the right of the main antenna - change offsets to match your mounting.
+# Starting point - verify against current ArduPilot docs and bench-test before flight.
+SERIAL3_PROTOCOL,5
+SERIAL3_BAUD,115
+GPS1_TYPE,26
+GPS1_RATE_MS,100
+GPS_INJECT_TO,0
+GPS1_MB_TYPE,1
+GPS1_MB_OFS_X,0
+GPS1_MB_OFS_Y,-0.5
+GPS1_MB_OFS_Z,0
+EK3_SRC1_YAW,2
