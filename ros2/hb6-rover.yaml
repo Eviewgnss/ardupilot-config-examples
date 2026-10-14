@@ -1,0 +1,55 @@
+# Eview HB6 / HB56 / HB52 / HBEV322 (single antenna) - septentrio_gnss_driver (ROS 2)
+# Starting point only. Keys follow the driver's config/rover.yaml; unlisted keys keep driver defaults.
+# Launch: ros2 launch septentrio_gnss_driver rover_node.launch.py file_name:=hb6-rover.yaml
+
+# USB: Ethernet-over-USB (default receiver IP) or the USB serial port
+device: tcp://192.168.3.1:28784
+# device: serial:/dev/ttyACM0
+
+serial:
+  baudrate: 921600
+  hw_flow_control: "off"
+
+configure_rx: true
+
+frame_id: gnss
+vehicle_frame_id: base_link
+local_frame_id: odom
+use_ros_axis_orientation: true
+
+receiver_type: gnss
+multi_antenna: false
+datum: Default
+
+polling_period:
+  pvt: 100     # ms -> 10 Hz
+  rest: 500
+
+# RTK corrections from an NTRIP caster (fill in your own service)
+rtk_settings:
+  ntrip_1:
+    id: "NTR1"
+    caster: ""
+    caster_port: 2101
+    username: ""
+    password: ""
+    mountpoint: ""
+    version: "v2"
+    tls: false
+    fingerprint: ""
+    rtk_standard: "auto"
+    send_gga: "auto"
+    keep_open: true
+
+publish:
+  auto_publish: false
+  publish_only_valid: false
+  navsatfix: true        # sensor_msgs/NavSatFix for robot_localization
+  gpsfix: true           # gps_msgs/GPSFix (solution mode, DOPs)
+  pvtgeodetic: true
+  poscovgeodetic: true   # covariance source
+  velcovgeodetic: true
+  atteuler: false
+  attcoveuler: false
+  aimplusstatus: true    # interference monitoring
+  diagnostics: true
