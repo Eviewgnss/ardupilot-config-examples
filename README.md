@@ -37,6 +37,11 @@ Septentrio SBF driver – no custom firmware needed.
 - Set `GPS1_MB_OFS_X/Y/Z` to match your mounting. The example file assumes the second antenna is 0.5 m to the right of the main antenna (`GPS1_MB_OFS_Y = -0.5`).
 - GPS yaw is only accurate while the vehicle is roughly upright; avoid it on tailsitters.
 
+## ROS 2
+
+The [`ros2/`](ros2/) folder has starting-point configs for Septentrio's official ROS 2 driver
+(`septentrio_gnss_driver`): `hb6-rover.yaml` for single-antenna RTK and `hb6-pro-heading.yaml` for dual-antenna heading.
+
 ## Important
 
 These are **starting points**. Always check them against the current
